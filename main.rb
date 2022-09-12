@@ -22,25 +22,64 @@ class Tasks
     end
     result +=((prev_point_x + last_coordinates[0]) * (prev_point_y - last_coordinates[1]))
     result = 0.5 * result.abs
-    print result
+    puts result
 
   end
   def second
     p = 4
     t = 8
-    r =0
+    r = 0
     diap = (p**r) * (1 - (1/(p**(t))))
-    print diap
+    puts diap
 
   end
   def third
     #1000100010001
     number = "1000100010001"
-    print number
+    elements = number.split('')
+
+    count = 1
+    res = 0
+
+    for element in elements do
+      res += element.to_i * (2 ** (elements.length - count))
+      count += 1
+    end
+
+    puts res
 
   end
+  def fourth
+    #111
+    number = 111
+    res = ''
+
+    while number > 0 do
+      if number % 2 == 0
+        res += "0"
+      else
+        res += "1"
+      end
+      number /= 2
+    end
+
+    res = res.split('').reverse!.join('')
+    puts res
+
+  end
+  def show_res
+    print "First task: "
+    first
+    print "Second task: "
+    second
+    print "Third task: "
+    third
+    print "Fourth task: "
+    fourth
+  end
+
 end
+
 test = Tasks.new
-#test.first
-#test.second
-test.third
+test.show_res
+
